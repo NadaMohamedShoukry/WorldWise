@@ -1,10 +1,10 @@
-/* eslint-disable react/jsx-key */
-/* eslint-disable react/prop-types */
 import CountryItem from "../CountryItem/CountryItem";
 import styles from "./CountryList.module.css";
 import Spinner from "../Spinner/Spinner";
 import Message from "../Message/Message";
-function CountryList({ cities, isLoading }) {
+import { useCities } from "../../contexts/CitiesContext";
+function CountryList() {
+  const { cities, isLoading } = useCities();
   if (isLoading) return <Spinner />;
   if (!cities.length)
     return <Message message={"Add your first city by clicking on the map"} />;
